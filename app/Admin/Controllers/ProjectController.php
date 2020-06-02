@@ -22,11 +22,15 @@ class ProjectController extends AdminController
     {
         return Grid::make(new Project(), function (Grid $grid) {
 
-            $grid->filter(function ($filter) {
-                // 展开过滤器
+            $grid->filter(function (Grid\Filter $filter) {
+                $filter->equal('id');
 
-                // 在这里添加字段过滤器
-                $filter->equal('number', '编号');
+                $platform = Platform::all();
+                $data = [];
+                foreach ($platform as $item) {
+                    $data[$item->id] = $item->name;
+                }
+                $filter->equal('platform_id')->select($data);
 
             });
 

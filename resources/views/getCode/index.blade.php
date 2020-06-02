@@ -54,7 +54,7 @@
 </div>-->
 <form class="layui-form layui-form-pane" action="">
     <div class="list-item">
-        <label class="layui-form-label">短信通道</label>
+        <label class="layui-form-label">簡訊通道</label>
         <div class="layui-input-inline">
             <select id="platform" lay-filter="platformChange">
                 @foreach($platform as $item)

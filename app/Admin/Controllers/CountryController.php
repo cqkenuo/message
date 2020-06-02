@@ -44,6 +44,13 @@ class CountryController extends AdminController
             $grid->filter(function (Grid\Filter $filter) {
                 $filter->equal('id');
 
+                $platform = Platform::all();
+                $data = [];
+                foreach ($platform as $item) {
+                    $data[$item->id] = $item->name;
+                }
+                $filter->equal('platform_id')->select($data);
+
             });
         });
     }
