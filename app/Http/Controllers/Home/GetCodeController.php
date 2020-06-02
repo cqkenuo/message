@@ -217,9 +217,10 @@ class GetCodeController extends Controller
 
                 break;
             case 3:
-                $data = LemonSms::getInstance()->getCode($codeReceive->project_id, $codeReceive->phone);
+                $project = Project::find($codeReceive->project_id);
+                $data = LemonSms::getInstance()->getCode($project->number, $codeReceive->phone);
 
-                if ($data->code == 908) {
+                if ($data->code == 908 || $data->code == 405) {
                     return response()->json([
                         'code' => 0,
                         'msg' => '正在获取验证码',
@@ -230,7 +231,7 @@ class GetCodeController extends Controller
                     if ($codeReceive->status != 1) {
 
                         $codeReceive->update([
-                            'content' => $data['data'],
+                            'content' => $data->data,
                             'status' => 1
                         ]);
 
@@ -247,7 +248,7 @@ class GetCodeController extends Controller
                         'msg' => '获取成功',
                         'data' => [
                             'times' => date('Y-m-d H:i:s', time()),
-                            'messages' => $data['data']
+                            'messages' => $data->data
                         ]
                     ]);
                 }
