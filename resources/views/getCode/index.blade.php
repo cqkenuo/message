@@ -58,7 +58,7 @@
         <div class="layui-input-inline">
             <select id="platform" lay-filter="platformChange">
                 @foreach($platform as $item)
-                    <option value="{{$item->id}}">{{ $item->name }}</option>
+                    <option value="{{$item->id}}">{{ $item->display_name }}</option>
                 @endforeach
             </select>
         </div>

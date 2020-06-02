@@ -3,6 +3,8 @@
 namespace App\Admin\Controllers;
 
 use App\Admin\Repositories\CodeReceivingRecord;
+use App\Models\Platform;
+use App\Models\Project;
 use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Show;
@@ -10,7 +12,8 @@ use Dcat\Admin\Controllers\AdminController;
 
 class CodeReceivingRecordController extends AdminController
 {
-    protected  $title='记录';
+    protected $title = '记录';
+
     /**
      * Make a grid builder.
      *
@@ -20,17 +23,29 @@ class CodeReceivingRecordController extends AdminController
     {
         return Grid::make(new CodeReceivingRecord(), function (Grid $grid) {
             $grid->id->sortable();
-            $grid->project_id;
+            $grid->platform_id->display(function ($platform) {
+                return Platform::find($platform)->name;
+            });
+            $grid->project_id->display(function ($project_id) {
+                return Project::find($project_id)->name;
+            });
             $grid->phone;
-            $grid->country_id;
             $grid->amount;
             $grid->content;
-            $grid->status;
+            $grid->status->display(function ($status) {
+                return $status == 0 ? '未获取验证码' : '已接码';
+            });
             $grid->created_at;
-            $grid->updated_at->sortable();
 
             $grid->filter(function (Grid\Filter $filter) {
                 $filter->equal('id');
+
+                $platform = Platform::all();
+                $data = [];
+                foreach ($platform as $item) {
+                    $data[$item->id] = $item->name;
+                }
+                $filter->equal('platform_id')->select($data);
 
             });
         });
