@@ -32,7 +32,7 @@ class CodeReceivingRecordController extends AdminController
                 }
             });
             $grid->project_id->display(function ($project_id) {
-                $platform = Project::find($project_id)->name;
+                $platform = Project::find($project_id);
 
                 if ($platform) {
                     return $platform->name;
