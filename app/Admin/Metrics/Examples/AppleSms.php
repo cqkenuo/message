@@ -40,7 +40,7 @@ class AppleSms extends Card
      */
     public function handle(Request $request)
     {
-        $sum = \App\Models\CodeReceivingRecord::where('platform_id', 2)->where('created_at', '>', Carbon::today())->sum('amount');
+        $sum = \App\Models\CodeReceivingRecord::where('platform_id', 2)->where('created_at', '>', Carbon::today())->where('status', 1)->sum('amount');
         $this->content('今日累计 ' . $sum);
         $this->up(15);
     }
