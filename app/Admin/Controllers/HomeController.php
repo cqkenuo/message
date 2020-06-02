@@ -28,7 +28,7 @@ class HomeController extends Controller
                     $column->row(Card::make('今日总销售', \App\Models\CodeReceivingRecord::where('created_at', '>', Carbon::today())->where('status', '1')->sum('amount')));
                 });
                 $row->column(4, function (Column $column) {
-                    $column->row(Card::make('今日接码总数', \App\Models\CodeReceivingRecord::where('created_at', '>', Carbon::today())->count()));
+                    $column->row(Card::make('今日接码总数', \App\Models\CodeReceivingRecord::where('created_at', '>', Carbon::today())->where('status', '1')->count()));
                 });
 
 
