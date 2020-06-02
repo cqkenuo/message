@@ -24,10 +24,22 @@ class CodeReceivingRecordController extends AdminController
         return Grid::make(new CodeReceivingRecord(), function (Grid $grid) {
             $grid->id->sortable();
             $grid->platform_id->display(function ($platform) {
-                return Platform::find($platform)->name;
+                $platform = Platform::find($platform);
+                if ($platform) {
+                    return $platform->name;
+                } else {
+                    return "无";
+                }
             });
             $grid->project_id->display(function ($project_id) {
-                return Project::find($project_id)->name;
+                $platform = Project::find($project_id)->name;
+
+                if ($platform) {
+                    return $platform->name;
+                } else {
+                    return "无";
+                }
+
             });
             $grid->phone;
             $grid->amount;
