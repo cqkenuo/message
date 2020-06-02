@@ -20,7 +20,7 @@ class ProjectController extends AdminController
      */
     protected function grid()
     {
-        return Grid::make(new Project(), function (Grid $grid) {
+        return Grid::make(\App\Models\Project::orderBy('created_at', 'desc'), function (Grid $grid) {
 
             $grid->filter(function (Grid\Filter $filter) {
                 $filter->equal('id');

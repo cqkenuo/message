@@ -21,7 +21,7 @@ class CodeReceivingRecordController extends AdminController
      */
     protected function grid()
     {
-        return Grid::make(new CodeReceivingRecord(), function (Grid $grid) {
+        return Grid::make(\App\Models\CodeReceivingRecord::orderBy('created_at','desc'), function (Grid $grid) {
             $grid->id->sortable();
             $grid->platform_id->display(function ($platform) {
                 $platform = Platform::find($platform);

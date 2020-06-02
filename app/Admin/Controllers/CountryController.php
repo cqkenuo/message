@@ -20,7 +20,7 @@ class CountryController extends AdminController
      */
     protected function grid()
     {
-        return Grid::make(new Country(), function (Grid $grid) {
+        return Grid::make(\App\Models\Country::orderBy('created_at','desc'), function (Grid $grid) {
 
             $grid->filter(function ($filter) {
                 // 展开过滤器

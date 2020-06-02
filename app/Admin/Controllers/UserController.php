@@ -22,7 +22,7 @@ class UserController extends AdminController
      */
     protected function grid()
     {
-        return Grid::make(new User(), function (Grid $grid) {
+        return Grid::make(\App\Models\User::orderBy('created_at', 'desc'), function (Grid $grid) {
             $grid->id->sortable();
             $grid->name;
             $grid->email;
