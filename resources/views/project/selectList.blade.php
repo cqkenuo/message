@@ -117,7 +117,7 @@
             //当前是否选中状态
             if (obj.checked) {
 
-                $(window.parent.document).find('#proname').attr("value", '¥' + obj.data.price + ' / ' + obj.data.number + ' - ' + obj.data.name);
+                $(window.parent.document).find('#proname').attr("value", '价格' + obj.data.price + ' / ' + obj.data.number + ' - ' + obj.data.name);
                 $(window.parent.document).find('#proid').attr("value", obj.data.id);
                 $(window.parent.document).find('#projectRemark').html(obj.data.description);
 
