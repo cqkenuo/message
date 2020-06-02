@@ -21,7 +21,7 @@ class CodeReceivingRecordController extends AdminController
      */
     protected function grid()
     {
-        return Grid::make(\App\Models\CodeReceivingRecord::orderBy('created_at','desc'), function (Grid $grid) {
+        return Grid::make(\App\Models\CodeReceivingRecord::orderBy('created_at', 'desc'), function (Grid $grid) {
             $grid->id->sortable();
             $grid->platform_id->display(function ($platform) {
                 $platform = Platform::find($platform);
@@ -58,6 +58,11 @@ class CodeReceivingRecordController extends AdminController
                     $data[$item->id] = $item->name;
                 }
                 $filter->equal('platform_id')->select($data);
+
+                $filter->equal('status')->select([
+                    0 => '未接码',
+                    1 => '已接码'
+                ]);
 
             });
         });
