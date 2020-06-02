@@ -67,7 +67,6 @@ class GetCodeController extends Controller
         switch ($platform) {
             case 1:
                 $data = SMSActivate::getInstance()->getNumber($project->number, $country->number);
-
                 $result = SMSActivate::getInstance()->setStatus($data['id'], 1);
                 break;
             case 2:
@@ -84,6 +83,7 @@ class GetCodeController extends Controller
                     $city = Area::find($request->city)->number;
                 }
                 $segment = Segment::find($request->segment);
+
                 $data = AppleSms::getInstance()->getNumber($project->number, $operate->number, $province, $city, $segment->number);
                 if ($data[0] != 1) {
                     return response()->json([
@@ -119,7 +119,7 @@ class GetCodeController extends Controller
             'thirty_id' => $data['id'],
             'user_id' => $request->user()->id,
             'phone' => $data['number'],
-            'country_id' => $country->id,
+            'country_id' => $country ? $country->id : '0',
             'amount' => $project->price,
             'content' => '',
             'status' => 0,
@@ -181,7 +181,6 @@ class GetCodeController extends Controller
                 break;
             case 2:
                 $data = AppleSms::getInstance()->getCode($codeReceive->thirty_id);
-
                 if ($data[0] == 0 && $data[1] == -3) {
                     return response()->json([
                         'code' => 0,

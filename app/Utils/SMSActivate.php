@@ -160,7 +160,6 @@ class SMSActivate implements GetCodeInterface
             return json_decode($result, true);
 
         $parsedResponse = explode(':', $result);
-
         if ($getNumber == 1) {
             $returnNumber = array('id' => $parsedResponse[1], 'number' => $parsedResponse[2]);
             return $returnNumber;

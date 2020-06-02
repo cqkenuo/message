@@ -93,16 +93,15 @@ class AppleSms
             'token' => $this->token,
             'iid' => $projectId,
             'did' => $this->did,
-            'operator' => urlencode($operator),
-            'provi' => urlencode($provi),
-            'city' => urlencode($city),
+            'operator' => $operator,
+            'provi' => $provi,
+            'city' => $city,
             'seq' => $seq,
-            'mobile' => $mobile,
+            'mobile' => ''
         ]);
 
         $response = $this->client->get('?' . $url);
         $result = $response->getBody();
-
         // 1|pid|提取时间|串口号|手机号|运营商|归属地
         return explode('|', $result);
     }
