@@ -45,7 +45,7 @@
         table.render({
             elem: '#prolist'
             , method: 'get'
-            , url: '/project/getProjectList/'
+            , url: '/project/getProjectList?platform={{$platform}}'
             , headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }

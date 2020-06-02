@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Admin\Repositories\Project;
+use App\Models\Platform;
 use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Show;
@@ -31,13 +32,16 @@ class ProjectController extends AdminController
 
 
             $grid->id->sortable();
-            $grid->icon;
+            $grid->icon->display(function ($icon) {
+                return "<img style='max-width: 30px;' src='/uploads/{$icon}'/>";
+            });
+            $grid->platform_id->display(function ($platform) {
+                return Platform::find($platform)->name;
+            });
             $grid->number;
             $grid->name;
             $grid->price;
             $grid->description;
-            $grid->created_at;
-            $grid->updated_at->sortable();
 
             $grid->filter(function (Grid\Filter $filter) {
                 $filter->equal('id');
@@ -76,6 +80,14 @@ class ProjectController extends AdminController
     {
         return Form::make(new Project(), function (Form $form) {
             $form->display('id');
+
+            $platform = Platform::all();
+            $data = [];
+            foreach ($platform as $item) {
+                $data[$item->id] = $item->name;
+            }
+
+            $form->select('platform_id', '平台')->options($data);
             $form->image('icon', '图标')->rules('required');
             $form->text('number', '编号')->rules('required');
             $form->text('name', '项目名称')->rules('required');

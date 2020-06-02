@@ -2,17 +2,15 @@
 
 namespace App\Admin\Controllers;
 
-use App\Admin\Repositories\Country;
+use App\Admin\Repositories\Segment;
 use App\Models\Platform;
 use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Show;
 use Dcat\Admin\Controllers\AdminController;
 
-class CountryController extends AdminController
+class SegmentController extends AdminController
 {
-    protected $title = '国家列表';
-
     /**
      * Make a grid builder.
      *
@@ -20,26 +18,15 @@ class CountryController extends AdminController
      */
     protected function grid()
     {
-        return Grid::make(new Country(), function (Grid $grid) {
-
-            $grid->filter(function ($filter) {
-                // 展开过滤器
-
-                // 在这里添加字段过滤器
-                $filter->equal('number', '编号');
-
-            });
-
+        return Grid::make(new Segment(), function (Grid $grid) {
             $grid->id->sortable();
-            $grid->icon->display(function ($icon) {
-                return "<img style='max-width: 30px;' src='/uploads/{$icon}'/>";
-            });
             $grid->platform_id->display(function ($platform) {
                 return Platform::find($platform)->name;
             });
-
             $grid->number;
             $grid->name;
+            $grid->created_at;
+            $grid->updated_at->sortable();
 
             $grid->filter(function (Grid\Filter $filter) {
                 $filter->equal('id');
@@ -57,9 +44,9 @@ class CountryController extends AdminController
      */
     protected function detail($id)
     {
-        return Show::make($id, new Country(), function (Show $show) {
+        return Show::make($id, new Segment(), function (Show $show) {
             $show->id;
-            $show->icon;
+            $show->platform_id;
             $show->number;
             $show->name;
             $show->created_at;
@@ -74,9 +61,8 @@ class CountryController extends AdminController
      */
     protected function form()
     {
-        return Form::make(new Country(), function (Form $form) {
+        return Form::make(new Segment(), function (Form $form) {
             $form->display('id');
-
             $platform = Platform::all();
             $data = [];
             foreach ($platform as $item) {
@@ -84,9 +70,8 @@ class CountryController extends AdminController
             }
             $form->select('platform_id', '平台')->options($data);
 
-            $form->image('icon')->rules('required');
-            $form->text('number')->rules('required');
-            $form->text('name')->rules('required');
+            $form->text('number');
+            $form->text('name');
 
             $form->display('created_at');
             $form->display('updated_at');

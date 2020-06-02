@@ -34,6 +34,7 @@ namespace Dcat\Admin {
      * @property Grid\Column|Collection require
      * @property Grid\Column|Collection require_dev
      * @property Grid\Column|Collection icon
+     * @property Grid\Column|Collection platform_id
      * @property Grid\Column|Collection price
      * @property Grid\Column|Collection email
      * @property Grid\Column|Collection phone
@@ -50,6 +51,7 @@ namespace Dcat\Admin {
      * @property Grid\Column|Collection status
      * @property Grid\Column|Collection display_name
      * @property Grid\Column|Collection code
+     * @property Grid\Column|Collection pid
      * @property Grid\Column|Collection parent_id
      * @property Grid\Column|Collection order
      * @property Grid\Column|Collection uri
@@ -90,6 +92,7 @@ namespace Dcat\Admin {
      * @method Grid\Column|Collection require(string $label = null)
      * @method Grid\Column|Collection require_dev(string $label = null)
      * @method Grid\Column|Collection icon(string $label = null)
+     * @method Grid\Column|Collection platform_id(string $label = null)
      * @method Grid\Column|Collection price(string $label = null)
      * @method Grid\Column|Collection email(string $label = null)
      * @method Grid\Column|Collection phone(string $label = null)
@@ -106,6 +109,7 @@ namespace Dcat\Admin {
      * @method Grid\Column|Collection status(string $label = null)
      * @method Grid\Column|Collection display_name(string $label = null)
      * @method Grid\Column|Collection code(string $label = null)
+     * @method Grid\Column|Collection pid(string $label = null)
      * @method Grid\Column|Collection parent_id(string $label = null)
      * @method Grid\Column|Collection order(string $label = null)
      * @method Grid\Column|Collection uri(string $label = null)
@@ -151,6 +155,7 @@ namespace Dcat\Admin {
      * @property Show\Field|Collection require
      * @property Show\Field|Collection require_dev
      * @property Show\Field|Collection icon
+     * @property Show\Field|Collection platform_id
      * @property Show\Field|Collection price
      * @property Show\Field|Collection email
      * @property Show\Field|Collection phone
@@ -167,6 +172,7 @@ namespace Dcat\Admin {
      * @property Show\Field|Collection status
      * @property Show\Field|Collection display_name
      * @property Show\Field|Collection code
+     * @property Show\Field|Collection pid
      * @property Show\Field|Collection parent_id
      * @property Show\Field|Collection order
      * @property Show\Field|Collection uri
@@ -207,6 +213,7 @@ namespace Dcat\Admin {
      * @method Show\Field|Collection require(string $label = null)
      * @method Show\Field|Collection require_dev(string $label = null)
      * @method Show\Field|Collection icon(string $label = null)
+     * @method Show\Field|Collection platform_id(string $label = null)
      * @method Show\Field|Collection price(string $label = null)
      * @method Show\Field|Collection email(string $label = null)
      * @method Show\Field|Collection phone(string $label = null)
@@ -223,6 +230,7 @@ namespace Dcat\Admin {
      * @method Show\Field|Collection status(string $label = null)
      * @method Show\Field|Collection display_name(string $label = null)
      * @method Show\Field|Collection code(string $label = null)
+     * @method Show\Field|Collection pid(string $label = null)
      * @method Show\Field|Collection parent_id(string $label = null)
      * @method Show\Field|Collection order(string $label = null)
      * @method Show\Field|Collection uri(string $label = null)

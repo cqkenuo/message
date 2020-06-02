@@ -17,7 +17,7 @@ class Configs extends Model
 
     public static function getCodeValue($key)
     {
-        return self::where('code', $key)->get()->value;
+        return self::where('code', $key)->get()->toArray()[0]['value'];
     }
 
     /**

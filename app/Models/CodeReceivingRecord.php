@@ -10,6 +10,7 @@ class CodeReceivingRecord extends Model
 
     protected $fillable = [
         'project_id',
+        'platform_id',
         'thirty_id',
         'user_id',
         'phone',

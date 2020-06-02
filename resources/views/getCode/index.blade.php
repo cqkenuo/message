@@ -54,6 +54,18 @@
 </div>-->
 <form class="layui-form layui-form-pane" action="">
     <div class="list-item">
+        <label class="layui-form-label">短信通道</label>
+        <div class="layui-input-inline">
+            <select id="platform" lay-filter="platformChange">
+                @foreach($platform as $item)
+                    <option value="{{$item->id}}">{{ $item->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
+    </div>
+
+    <div class="list-item">
         <label class="layui-form-label">项目</label>
         <div class="layui-input-inline">
             <input type="text" id="proname" value="" placeholder="请点击右侧按钮选择" disabled class="layui-input">
@@ -67,7 +79,7 @@
         <div class="layui-card-body" id="projectRemark">暂无</div>
     </div>
 
-    <div class="list-item attach">
+    <div class="list-item" id="showCountry">
         <label class="layui-form-label">国家</label>
         <div class="layui-input-inline">
             <input type="text" id="country" value="" placeholder="必选项" disabled class="layui-input">
@@ -76,10 +88,64 @@
         <input class="layui-btn layui-btn-normal submit" lay-submit="" readonly lay-filter="selectcountry" value="选择国家"
                style="width:234px;">
     </div>
+
+    <div id="appleShow" style="display: none">
+        <div class="list-item">
+            <label class="layui-form-label">运营商</label>
+            <div class="layui-input-inline">
+                <select id="operator">
+                    @foreach($operate as $item)
+                        <option value="{{$item->id}}">{{ $item->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+
+        <div class="list-item">
+            <div class="layui-input-inline">
+                <label class="layui-form-label">省</label>
+                <div class="layui-input-inline">
+                    <select id="province" lay-filter="provinceChange">
+                        <option value="不限">不限省份</option>
+                        @foreach($area as $item)
+                            <option value="{{$item->id}}">{{ $item->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="list-item">
+            <div class="layui-input-inline">
+                <label class="layui-form-label">市</label>
+                <div class="layui-input-inline">
+                    <select id="city">
+                        <option value="不限">不限市</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="list-item">
+            <label class="layui-form-label">号段</label>
+            <div class="layui-input-inline">
+                <select id="segment">
+                    @foreach($segment as $item)
+                        <option value="{{$item->id}}">{{ $item->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+
+
+    </div>
+
+
     <div class="list-item">
         <label class="layui-form-label">手机号码</label>
         <div class="layui-input-inline">
-            <input type="text" id="number" value="" placeholder="输入号码或点击右侧获取新号" class="layui-input">
+            <input type="text" id="number" value="" disabled placeholder="点击右侧获取新号" class="layui-input">
             <input type="hidden" id="orderid" value="">
             <input type="hidden" id="orderids" value="">
         </div>
@@ -87,6 +153,8 @@
                lay-filter="selectnum" value="获取新号码" style="width:110px;">
 
     </div>
+
+
     <div class="list-item">
         <input class="layui-btn layui-btn-danger submit" readonly lay-submit="" lay-filter="againgetsms"
                id="getcontentmsg" value="准备获取簡訊内容...">
@@ -116,6 +184,7 @@
 <script type="text/javascript" src="https://www.layuicdn.com/layui/layui.js"></script>
 <script type="text/javascript">
 
+
     var getSmsTask;
 
     layui.config({
@@ -130,7 +199,7 @@
                 type: 2,
                 title: '项目列表',
                 area: ['80%', '90%'],
-                content: '/project/selectList/',
+                content: '/project/selectList?platform=' + $('#platform').val(),
                 btn: ['确定'],
                 yes: function (index, layero) {
                     var proname = $('#proname').val();
@@ -153,13 +222,41 @@
             return false;
         });
 
+        form.on("select(platformChange)", function (obj) {
+            $('#proid').val("");
+            $('#domain').val("");
+            $('#projectRemark').html("");
+            if (obj.value == 2) {
+                $('#showCountry').hide();
+                $('#appleShow').show();
+            } else {
+                $('#showCountry').show();
+                $('#appleShow').hide();
+            }
+        })
+        // 省切换
+        form.on("select(provinceChange)", function (obj) {
+            $.ajax({
+                url: '/getNextArea?id=' + obj.value,
+                dataType: 'json',
+                success: function (res) {
+                    var html = "<option value=\"不限\">不限市</option>";
+                    for (let i = 0; i < res.data.length; i++) {
+                        html += `<option value="${res.data[i].id}">${res.data[i].name}</option>`;
+                    }
+                    $('#city').html(html);
+                    form.render();
+                }
+            })
+        })
+
         form.on('submit(selectcountry)', function () {
 
             layer.open({
                 type: 2,
                 title: '国家列表',
                 area: ['80%', '90%'],
-                content: '/selectCountryPage/',
+                content: '/selectCountryPage?platform=' + $('#platform').val(),
                 btn: ['确定'],
                 yes: function (index, layero) {
 
@@ -210,7 +307,7 @@
 
             var domain = $('#domain').val();
 
-            if (!domain) {
+            if ($('#platform').val() != 2 && !domain) {
 
                 layer.alert('选择国家错误，请重新选择！');
                 return false;
@@ -227,7 +324,15 @@
             $.ajax({
                 url: '/getNumber/',
                 type: 'get',
-                data: 'projectId=' + proid + '&countryId=' + domain,
+                data: {
+                    projectId: proid,
+                    countryId: domain,
+                    platform: $('#platform').val(),
+                    operate: $('#operator').val(),
+                    province: $('#province').val(),
+                    city: $('#city').val(),
+                    segment: $('#segment').val(),
+                },
                 success: function (msg) {
                     if (msg.code == 0) {
                         layer.alert(msg.msg);
@@ -319,7 +424,16 @@
             $.ajax({
                 url: '/getNumber/',
                 type: 'get',
-                data: 'procode=' + proid + '&domain=' + domain + '&number=' + phoneNumber,
+                data: {
+                    procode: proid,
+                    domain: domain,
+                    number: phoneNumber,
+                    platform: $('#platform').val(),
+                    operate: $('#operator').val(),
+                    province: $('#province').val(),
+                    city: $('#city').val(),
+                    segment: $('#segment').val(),
+                },
                 success: function (msg) {
                     if (msg.code == 0) {
                         layer.alert(msg.msg);

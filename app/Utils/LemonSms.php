@@ -100,7 +100,7 @@ class LemonSms
          * 400：失败，系统异常
          * 907：vip_key错误
          */
-        return json_decode($result)->data;
+        return json_decode($result);
     }
 
 
@@ -135,7 +135,7 @@ class LemonSms
          * 908：暂未查询到验证码，请稍后再试
          * 405：验证码获取失败，请查询数据列表，或联系管理员
          */
-        return json_decode($result)->data;
+        return json_decode($result);
     }
 
 

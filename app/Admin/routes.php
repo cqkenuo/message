@@ -21,6 +21,9 @@ Route::group([
     $router->resource('codeReceivingRecord', 'CodeReceivingRecordController');
     $router->resource('addUserMoney', 'AddUserMoneyController');
     $router->resource('platform', 'PlatformController');
+    $router->resource('area', 'AreaController');
+    $router->resource('segment', 'SegmentController');
+    $router->resource('operator', 'OperatorController');
 
     $router->post('addUserMoneyAction', 'AddUserMoneyController@addUserMoneyAction');
 

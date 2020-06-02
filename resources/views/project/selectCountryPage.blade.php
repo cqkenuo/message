@@ -44,7 +44,7 @@
         table.render({
             elem: '#countrylist'
             , method: 'get'
-            , url: '/selectCountry/'
+            , url: '/selectCountry?platform={{ $platform }}'
             , limit: 10
             , skin: 'row'
             , even: true

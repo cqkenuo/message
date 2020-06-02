@@ -60,6 +60,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/releaseNumber', 'Home\GetCodeController@releaseNumber');
     Route::get('/shieldNumber', 'Home\GetCodeController@shieldNumber');
 
+    Route::get('/getNextArea', 'Home\GetCodeController@getNextArea');
+
 
     Route::get('/test', 'Home\HomeController@test');
 });

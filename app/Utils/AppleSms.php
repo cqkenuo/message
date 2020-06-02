@@ -16,7 +16,9 @@ use GuzzleHttp\Client;
 class AppleSms
 {
 
-    protected $requestUrl = "http://47.57.151.105/yhapi.ashx?";
+    protected $requestUrl = "http://47.57.151.105/yhapi.ashx/";
+
+    protected $did = 'f5272cf56216365f0cd8ee896099d16a';
 
     protected $client = null;
 
@@ -58,7 +60,7 @@ class AppleSms
             'ApiName' => $apiName,
             'PassWord' => $apiPwd
         ]);
-        $response = $this->client->get($url);
+        $response = $this->client->get('?' . $url);
 
         $result = explode('|', $response->getBody());
         if ($result[0] == 1) {
@@ -90,15 +92,17 @@ class AppleSms
             'act' => 'getPhone',
             'token' => $this->token,
             'iid' => $projectId,
-            'operator' => $operator,
-            'provi' => $provi,
-            'city' => $city,
+            'did' => $this->did,
+            'operator' => urlencode($operator),
+            'provi' => urlencode($provi),
+            'city' => urlencode($city),
             'seq' => $seq,
             'mobile' => $mobile,
         ]);
-        $response = $this->client->get($url);
 
+        $response = $this->client->get('?' . $url);
         $result = $response->getBody();
+
         // 1|pid|提取时间|串口号|手机号|运营商|归属地
         return explode('|', $result);
     }
@@ -112,7 +116,7 @@ class AppleSms
             'token' => $this->token,
             'pid' => $pid,
         ]);
-        $response = $this->client->get($url);
+        $response = $this->client->get('?' . $url);
 
         $result = $response->getBody();
         // 1|验证码数字|完整短信内容
@@ -128,7 +132,7 @@ class AppleSms
             'token' => $this->token,
             'pid' => $pid,
         ]);
-        $response = $this->client->get($url);
+        $response = $this->client->get('?' . $url);
 
         $result = $response->getBody();
 //        成功返回：1|
@@ -146,7 +150,7 @@ class AppleSms
             'pid' => $pid,
             'reason' => $reason
         ]);
-        $response = $this->client->get($url);
+        $response = $this->client->get('?' . $url);
 
         $result = $response->getBody();
 //        成功返回：1|

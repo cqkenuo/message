@@ -20,9 +20,10 @@ class ProjectController extends Controller
     /**
      * 后台首页
      */
-    public function selectList()
+    public function selectList(Request $request)
     {
-        return view('project/selectList');
+        $platform = $request->platform;
+        return view('project/selectList', compact('platform'));
     }
 
 
@@ -31,12 +32,15 @@ class ProjectController extends Controller
         $keyWord = $request->keyword;
         $limit = $request->limit;
         $page = $request->page - 1;
+        $platform = $request->platform;
         $total = DB::table("projects")
+            ->where('platform_id', $platform)
             ->where('name', 'like', $keyWord . '%')
             ->groupBy()
             ->count();
 
         $items = DB::table("projects")
+            ->where('platform_id', $platform)
             ->where('name', 'like', $keyWord . '%')
             ->skip($page * $limit)
             ->take($limit)
@@ -51,9 +55,10 @@ class ProjectController extends Controller
         ]);
     }
 
-    public function selectCountryPage()
+    public function selectCountryPage(Request $request)
     {
-        return view('project.selectCountryPage');
+        $platform = $request->platform;
+        return view('project.selectCountryPage', compact('platform'));
     }
 
 
@@ -61,13 +66,16 @@ class ProjectController extends Controller
     {
         $keyWord = $request->keyword;
         $limit = $request->limit;
+        $platform = $request->platform;
         $page = $request->page - 1;
         $total = DB::table("countries")
+            ->where('platform_id', $platform)
             ->where('name', 'like', $keyWord . '%')
             ->groupBy()
             ->count();
 
         $items = DB::table("countries")
+            ->where('platform_id', $platform)
             ->where('name', 'like', $keyWord . '%')
             ->skip($page * $limit)
             ->take($limit)
