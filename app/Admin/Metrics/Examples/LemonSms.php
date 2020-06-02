@@ -40,7 +40,7 @@ class LemonSms extends Card
      */
     public function handle(Request $request)
     {
-        $sum = \App\Models\CodeReceivingRecord::where('platform_id', 3)->whereDate('created_at', '>', Carbon::today())->sum('amount');
+        $sum = \App\Models\CodeReceivingRecord::where('platform_id', 3)->where('created_at', '>', Carbon::today())->sum('amount');
         $this->content('今日累计 ' . $sum);
         $this->up(15);
     }
