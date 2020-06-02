@@ -64,6 +64,7 @@ class CodeReceivingRecordController extends AdminController
                     1 => '已接码'
                 ]);
 
+                $filter->gt('created_at')->date();
             });
         });
     }
