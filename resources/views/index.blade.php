@@ -27,7 +27,7 @@
         <div class="layui-form component" lay-filter="LAY-site-header-component"></div>
         <ul class="layui-nav">
             <li class="layui-nav-item ">
-                <a href="/">首頁 </a>
+                <a href="/">餘額 </a>
             </li>
             @if (Auth::check())
                 <li class="layui-nav-item">
@@ -38,7 +38,7 @@
             @else
 
                 <li class="layui-nav-item ">
-                    <a href="/login">登錄 </a>
+                    <a href="/login">登入 </a>
                 </li>
 
                 <li class="layui-nav-item ">
@@ -69,7 +69,7 @@
             <a href="/register" class="layui-inline site-down"
                target="_blank">
                 <cite class="layui-icon">&#xe658;</cite>
-                立即註冊
+                歡迎登入
             </a>
         </div>
 

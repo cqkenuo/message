@@ -30,12 +30,12 @@
         <div class="layui-form component" lay-filter="LAY-site-header-component"></div>
         <ul class="layui-nav">
             <li class="layui-nav-item ">
-                <a href="/">首頁 </a>
+                <a href="/">餘額 </a>
             </li>
 
 
             <li class="layui-nav-item ">
-                <a href="/login">登錄 </a>
+                <a href="/login">登入 </a>
             </li>
 
             <li class="layui-nav-item ">
@@ -74,21 +74,21 @@
 <!-- LoginForm -->
 <div class="zyl_lofo_main" style="height: 300px">
     <fieldset class="layui-elem-field layui-field-title zyl_mar_02">
-        <legend>欢迎登陆 - 簡訊平台</legend>
+        <legend>歡迎登入 - 簡訊平台</legend>
     </fieldset>
     <div class="layui-row layui-col-space15">
         <form class="layui-form zyl_pad_01" action="">
             <div class="layui-col-sm12 layui-col-md12">
                 <div class="layui-form-item">
                     <input type="text" name="name" lay-verify="required|userName" autocomplete="off"
-                           placeholder="账号" class="layui-input">
+                           placeholder="帳號" class="layui-input">
                     <i class="layui-icon layui-icon-username zyl_lofo_icon"></i>
                 </div>
             </div>
             <div class="layui-col-sm12 layui-col-md12">
                 <div class="layui-form-item">
                     <input type="password" name="password" lay-verify="required|pass" autocomplete="off"
-                           placeholder="密码"
+                           placeholder="密碼"
                            class="layui-input">
                     <i class="layui-icon layui-icon-password zyl_lofo_icon"></i>
                 </div>
@@ -98,7 +98,7 @@
                     <div class="layui-col-xs4 layui-col-sm4 layui-col-md4">
                         <div class="layui-form-item">
                             <input type="text" name="captcha" id="captcha" lay-verify="required|vercodes"
-                                   autocomplete="off" placeholder="验证码" class="layui-input" maxlength="4">
+                                   autocomplete="off" placeholder="驗證碼" class="layui-input" maxlength="4">
                             <i class="layui-icon layui-icon-vercode zyl_lofo_icon"></i>
                         </div>
                     </div>
@@ -112,7 +112,7 @@
                 </div>
             </div>
             <div class="layui-col-sm12 layui-col-md12">
-                <button class="layui-btn layui-btn-fluid" lay-submit="" lay-filter="demo1">立即登录</button>
+                <button class="layui-btn layui-btn-fluid" lay-submit="" lay-filter="demo1">立即登入</button>
             </div>
         </form>
     </div>
@@ -153,7 +153,7 @@
                 type: 'post',
                 dataType: "json",
                 success: function (response) {
-                    layer.msg('登录成功', function () {
+                    layer.msg('登入成功', function () {
                         window.location.href = '/';
                     });
 

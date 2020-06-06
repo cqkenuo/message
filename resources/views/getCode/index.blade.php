@@ -66,26 +66,26 @@
     </div>
 
     <div class="list-item">
-        <label class="layui-form-label">项目</label>
+        <label class="layui-form-label">項目</label>
         <div class="layui-input-inline">
             <input type="text" id="proname" value="" placeholder="请点击右侧按钮选择" disabled class="layui-input">
             <input type="hidden" id="proid" value="">
         </div>
-        <input class="layui-btn layui-btn-normal submit" lay-submit="" readonly lay-filter="selectpro" value="选择项目"
+        <input class="layui-btn layui-btn-normal submit" lay-submit="" readonly lay-filter="selectpro" value="選擇項目"
                style="width:234px;">
     </div>
     <div class="layui-card" style="width: 800px" id="showRemark">
-        <div class="layui-card-header">项目描述</div>
-        <div class="layui-card-body" id="projectRemark">暂无</div>
+        <div class="layui-card-header">項目描述</div>
+        <div class="layui-card-body" id="projectRemark">暫無</div>
     </div>
 
     <div class="list-item" id="showCountry">
-        <label class="layui-form-label">国家</label>
+        <label class="layui-form-label">國家</label>
         <div class="layui-input-inline">
-            <input type="text" id="country" value="" placeholder="必选项" disabled class="layui-input">
+            <input type="text" id="country" value="" placeholder="必選擇" disabled class="layui-input">
             <input type="hidden" id="domain" value="">
         </div>
-        <input class="layui-btn layui-btn-normal submit" lay-submit="" readonly lay-filter="selectcountry" value="选择国家"
+        <input class="layui-btn layui-btn-normal submit" lay-submit="" readonly lay-filter="selectcountry" value="選擇國家"
                style="width:234px;">
     </div>
 
@@ -143,14 +143,14 @@
 
 
     <div class="list-item">
-        <label class="layui-form-label">手机号码</label>
+        <label class="layui-form-label">手機號碼</label>
         <div class="layui-input-inline">
-            <input type="text" id="number" value="" disabled placeholder="点击右侧获取新号" class="layui-input">
+            <input type="text" id="number" value="" disabled placeholder="右邊獲取新號碼" class="layui-input">
             <input type="hidden" id="orderid" value="">
             <input type="hidden" id="orderids" value="">
         </div>
         <input class="layui-btn layui-btn-normal submit" id="selectnumnode" lay-submit="" readonly
-               lay-filter="selectnum" value="获取新号码" style="width:110px;">
+               lay-filter="selectnum" value="獲取號碼" style="width:110px;">
 
     </div>
 
@@ -158,8 +158,8 @@
     <div class="list-item">
         <input class="layui-btn layui-btn-danger submit" readonly lay-submit="" lay-filter="againgetsms"
                id="getcontentmsg" value="准备获取簡訊内容...">
-        <input class="layui-btn layui-btn-normal submit" readonly lay-submit="" lay-filter="releasember" value="释放手机号">
-        <input class="layui-btn layui-btn-normal submit" readonly lay-submit="" lay-filter="deletebymber" value="拉黑手机号">
+        <input class="layui-btn layui-btn-normal submit" readonly lay-submit="" lay-filter="releasember" value="釋放號碼">
+        <input class="layui-btn layui-btn-normal submit" readonly lay-submit="" lay-filter="deletebymber" value="封鎖號碼">
     </div>
     <div class="layui-form-item layui-form-text">
         <div class="layui-form">
@@ -171,7 +171,7 @@
                 </colgroup>
                 <thead>
                 <tr>
-                    <th>时间</th>
+                    <th>時間</th>
                     <th>簡訊内容</th>
                 </tr>
                 </thead>
@@ -472,7 +472,7 @@
 
             clearInterval(getSmsTask);
             $('#getcontentmsg').css('display', 'none');
-            $('#getcontentmsg').val('准备获取簡訊内容...');
+            $('#getcontentmsg').val('準備獲取簡訊內容...');
 
         }
 
@@ -506,7 +506,7 @@
 
             getSmsTask = setInterval(function () {
 
-                $('#getcontentmsg').val('剩余 ' + i + ' 次获取簡訊...');
+                $('#getcontentmsg').val('剩餘 ' + i + ' 次獲取簡訊...');
 
                 $.ajax({
                     url: '/getSmsContent/',

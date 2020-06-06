@@ -88,7 +88,7 @@
                         <a href="javascript:;" lay-href="/getCode/index" lay-tips="在線取碼"
                            lay-direction="2">
                             <i class="layui-icon layui-icon-heart-fill"></i>
-                            <cite>在線取碼</cite>
+                            <cite>在線收碼</cite>
                         </a>
                     </li>
 
@@ -104,7 +104,7 @@
                         <a href="javascript:;" lay-href="/user/recharge" lay-tips="賬戶充值"
                            lay-direction="2">
                             <i class="layui-icon layui-icon-rmb"></i>
-                            <cite>賬戶充值</cite>
+                            <cite>帳戶儲值</cite>
                         </a>
                     </li>
 
@@ -112,7 +112,7 @@
                         <a href="javascript:;" lay-href="/user/rechargeDetail" lay-tips="充值明細"
                            lay-direction="2">
                             <i class="layui-icon layui-icon-diamond"></i>
-                            <cite>充值明細</cite>
+                            <cite>儲值明細</cite>
                         </a>
                     </li>
 
@@ -129,7 +129,7 @@
                         <a href="javascript:;" lay-href="/user/edit" lay-tips="個人信息"
                            lay-direction="2">
                             <i class="layui-icon layui-icon-friends"></i>
-                            <cite>個人信息</cite>
+                            <cite>個人訊息</cite>
                         </a>
                     </li>
 
