@@ -190,7 +190,7 @@ layui.define(['code', 'element', 'table', 'util'], function(exports){
             ,'<option value="element/nav.html">nav 导航菜单</option>'
             ,'<option value="element/nav.html#breadcrumb">breadcrumb 面包屑</option>'
             ,'<option value="element/tab.html">tabs 选项卡</option>'
-            ,'<option value="element/progress.html">progress 进度条</option>'
+            ,'<option value="element/progress.html">progress 进度條</option>'
             ,'<option value="element/collapse.html">collapse 折叠面板/手风琴</option>'
             ,'<option value="element/table.html">table 表格元素</option>'
             ,'<option value="element/badge.html">badge 徽章</option>'
@@ -202,7 +202,7 @@ layui.define(['code', 'element', 'table', 'util'], function(exports){
             ,'<option value="modules/layer.html">layer 弹出层/弹窗综合</option>'
             ,'<option value="modules/laydate.html">laydate 日期时间选择器</option>'
             ,'<option value="modules/layim.html">layim 即时通讯/聊天</option>'
-            ,'<option value="modules/laypage.html">laypage 分页</option>'
+            ,'<option value="modules/laypage.html">laypage 分頁</option>'
             ,'<option value="modules/laytpl.html">laytpl 模板引擎</option>'
             ,'<option value="modules/table.html">table 数据表格</option>'
             ,'<option value="modules/form.html">form 表单模块</option>'
@@ -256,7 +256,7 @@ layui.define(['code', 'element', 'table', 'util'], function(exports){
     });
 
 
-    //首页banner
+    //首頁banner
     setTimeout(function(){
         $('.site-zfj').addClass('site-zfj-anim');
         setTimeout(function(){
@@ -314,7 +314,7 @@ layui.define(['code', 'element', 'table', 'util'], function(exports){
         }, 'json');
     }
 
-    //首页操作
+    //首頁操作
     (function(){
         //获取下载数
         $.get('//fly.layui.com/api/handle?id=10&type=find', function(res){
@@ -369,7 +369,7 @@ layui.define(['code', 'element', 'table', 'util'], function(exports){
         $(window).on('scroll', scroll);
     }();
 
-    //示例页面滚动
+    //示例頁面滚动
     $('.site-demo-body').on('scroll', function(){
         var elemDate = $('.layui-laydate,.layui-colorpicker-main')
             ,elemTips = $('.layui-table-tips');
@@ -432,7 +432,7 @@ layui.define(['code', 'element', 'table', 'util'], function(exports){
         this.setSelectionRange(offset, offset);
     };
 
-    //演示页面
+    //演示頁面
     $('body').on('keydown', '#LAY_editor, .site-demo-text', function(e){
         var key = e.keyCode;
         if(key === 9 && window.getSelection){

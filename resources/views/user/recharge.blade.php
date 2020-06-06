@@ -74,7 +74,7 @@
         </div>
 
         <div class="layui-form-item">
-            <label class="layui-form-label">当前帐户</label>
+            <label class="layui-form-label">當前帳戶</label>
 
             <div class="layui-input-inline">
                 <input type="text" value="{{ Auth::user()->name }}" disabled class="layui-input">
@@ -82,13 +82,6 @@
         </div>
 
 
-        <blockquote class="layui-elem-quote layui-text notice">
-            1.请务必 备注登陆账号! 2分钟左右自动到账,最低充值10元 ! <br/>
-            2.未备注或使用花呗等透支渠道需要2分钟后手动输入订单号补单 ! <br/>
-            3.长时间未到账请自行手动到账 , 只可补24小时内的订单 !<br/>
-            4.超24小时订单请联系客服 , 10元以下掉单拒绝处理 !<br/>
-            5.超过3天的订单拒绝处理 !!!
-        </blockquote>
 
     </div>
 </form>

@@ -54,7 +54,7 @@ class GetCodeController extends Controller
         if ($user->money < $project->price) {
 
             return response()->json([
-                'code' => 1,
+                'code' => 0,
                 'msg' => '请先充值后再进行获取手机号',
                 'data' => [
 

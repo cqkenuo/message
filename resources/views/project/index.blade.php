@@ -27,14 +27,14 @@
 <body>
 <div class="layui-fuild">
     <div class="layui-card">
-        <div class="layui-card-header">项目列表</div>
+        <div class="layui-card-header">項目列保</div>
         <div class="layui-card-body">
             <div class="demoTable">
                 <div class="layui-inline">
                     <input class="layui-input" name="protitle" id="proReload" autocomplete="off"
-                           placeholder="请输入项目ID或关键词">
+                           placeholder="請輸入項目ID或關鍵字">
                 </div>
-                <button class="layui-btn layui-btn-normal" data-type="reload">搜索</button>
+                <button class="layui-btn layui-btn-normal" data-type="reload">搜尋</button>
             </div>
             <table class="layui-hide" id="prolist" lay-filter="list"></table>
 
@@ -63,14 +63,17 @@
             , skin: 'row'
             , even: true
             , cols: [[
-                {field: 'icon', title: '图标', templet: '#imgnode'}
-                , {field: 'id', title: '项目ID'}
-                , {field: 'name', title: '中文名称'}
-                , {field: 'number', title: '编码'}
-                , {field: 'price', title: '单价(¥)'}
+                {field: 'icon', title: '圖片', templet: '#imgnode'}
+                , {field: 'id', title: '項目ID'}
+                , {field: 'name', title: '中文名稱'}
+                , {field: 'number', title: '編碼'}
+                , {field: 'price', title: '價格'}
             ]]
             , page: true
             , id: 'proReload'
+            , text: {
+                none: '無資料' //默认：无数据。注：该属性为 layui 2.2.5 开始新增
+            }
         });
 
         active = {
@@ -126,7 +129,7 @@
             //当前是否选中状态
             if (obj.checked) {
 
-                $(window.parent.document).find('#proname').attr("value", '¥' + obj.data.price + ' / ' + obj.data.number + ' - ' + obj.data.name);
+                $(window.parent.document).find('#proname').attr("value", obj.data.price + ' / ' + obj.data.number + ' - ' + obj.data.name);
                 $(window.parent.document).find('#proid').attr("value", obj.data.procode);
 
                 if (obj.data.selectC == 'no') {

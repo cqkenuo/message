@@ -27,9 +27,9 @@
 <body>
 <div class="demoTable">
     <div class="layui-inline">
-        <input class="layui-input" name="protitle" id="proReload" autocomplete="off" placeholder="请输入项目ID或关键词">
+        <input class="layui-input" name="protitle" id="proReload" autocomplete="off" placeholder="請輸入項目ID或關鍵字">
     </div>
-    <button class="layui-btn layui-btn-normal" data-type="reload">搜索</button>
+    <button class="layui-btn layui-btn-normal" data-type="reload">搜尋</button>
 </div>
 <script type="text/html" id="imgnode">
 
@@ -53,12 +53,12 @@
             , skin: 'row'
             , even: true
             , cols: [[
-                {type: 'radio', width: '7%', title: '选择'}
-                , {field: 'icon', width: '8%', title: '图标', templet: '#imgnode'}
-                , {field: 'id', width: '10%', title: '项目ID'}
-                , {field: 'name', width: '32%', title: '中文名称'}
-                , {field: 'number', width: '31%', title: '编码'}
-                , {field: 'price', width: '12%', title: '单价(¥)'}
+                {type: 'radio', width: '7%', title: '選擇'}
+                , {field: 'icon', width: '8%', title: '圖片', templet: '#imgnode'}
+                , {field: 'id', width: '10%', title: '項目ID'}
+                , {field: 'name', width: '32%', title: '中文名稱'}
+                , {field: 'number', width: '31%', title: '編碼'}
+                , {field: 'price', width: '12%', title: '单价'}
 
             ]]
             , page: true

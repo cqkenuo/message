@@ -30,11 +30,10 @@
 </style>
 <body>
 <div class="demoTable">
-    <blockquote class="layui-elem-quote layui-text notice">系统只保留最近7天之内的数据！请您及时查看对账！</blockquote>
     <div class="layui-input-inline">
-        <input class="layui-input" name="numbers" id="numbers" placeholder="请输入手机号">
+        <input class="layui-input" name="numbers" id="numbers" placeholder="請輸入手機號碼">
     </div>
-    <button class="layui-btn layui-btn-normal" data-type="reload">搜索</button>
+    <button class="layui-btn layui-btn-normal" data-type="reload">搜尋</button>
 </div>
 <table class="layui-hide" id="smslist"></table>
 <script type="text/javascript" src="https://www.layuicdn.com/layui/layui.js"></script>

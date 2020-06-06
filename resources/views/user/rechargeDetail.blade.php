@@ -31,9 +31,8 @@
 <body>
 <div class="demoTable">
     <div class="layui-form">
-        <blockquote class="layui-elem-quote layui-text notice">存储联系客服充值成功的记录
-        </blockquote>
-        <button class="layui-btn layui-btn-danger layui-btn-sm layui-btn-radius">成功充值:¥ <font id="totalmoney">{{ $sum }}</font>
+
+        <button class="layui-btn layui-btn-danger layui-btn-sm layui-btn-radius">成功儲值: <font id="totalmoney">{{ $sum }}</font>
         </button>
     </div>
 </div>
@@ -50,9 +49,9 @@
             , method: 'get'
             , url: '/user/rechargeDetailList/'
             , cols: [[
-                {field: 'id', title: '序号'}
-                , {field: 'amount', title: '充值金额'}
-                , {field: 'created_at', title: '充值时间'}
+                {field: 'id', title: '序號'}
+                , {field: 'amount', title: '儲值金額'}
+                , {field: 'created_at', title: '儲值時間'}
             ]]
             , headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

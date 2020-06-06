@@ -45,7 +45,7 @@
                     1.平台无中国大陆号码!!! 不做腾讯、阿里、银行、政府、金融、违法、违规等相关项目！<br/>
                     2.多个号同时请下载电脑客户端软件 , 大客户合作API请找客服洽谈！多家供应商，折扣力度诱人！<br/>
                     3.部分项目需要使用VPN,同一设备尽量不注册第二个！具体注册技巧请自行网络寻找<br/>
-                    4.每个号码最长有效期10分钟,如长时间获取不到验证码,请点击进行释放,然后再获取新号码进行操作<br/>
+                    4.每个号码最长有效期10分钟,如长时间获取不到验证码,请点击进行释放,然后再獲取號碼进行操作<br/>
                     5.放弃使用时号码时必须释放或拉黑，避免后台收到验证码簡訊扣费! 恶意取号拉黑系统自动锁定账户!不予解封!
                 </div>
             </div>
@@ -192,6 +192,12 @@
     }).use(['form', 'layer'], function () {
         $ = layui.jquery;
         var form = layui.form;
+
+        $(document).keyup(function (event) {
+            if (event.keyCode == 13) {
+                $("#selectnumnode").trigger("click");
+            }
+        });
 
         form.on('submit(selectpro)', function () {
 
@@ -351,13 +357,13 @@
 
                     }
 
-                    $(obj).val('获取新号码');
+                    $(obj).val('獲取號碼');
                     $(obj).attr('lay-filter', 'selectnum');
                 },
                 error: function () {
-                    $(obj).val('获取新号码');
+                    $(obj).val('獲取號碼');
                     $(obj).attr('lay-filter', 'selectnum');
-                    layer.alert('获取号码失败！请刷新重试！');
+                    layer.msg('獲取號碼失败！请刷新重试！');
                     lockBtn('unlock');
                 }
             });
@@ -425,9 +431,8 @@
                 url: '/getNumber/',
                 type: 'get',
                 data: {
-                    procode: proid,
-                    domain: domain,
-                    number: phoneNumber,
+                    projectId: proid,
+                    countryId: domain,
                     platform: $('#platform').val(),
                     operate: $('#operator').val(),
                     province: $('#province').val(),
@@ -459,7 +464,7 @@
                 error: function () {
                     $(obj).val('获取指定号');
                     $(obj).attr('lay-filter', 'selectednum');
-                    layer.alert('获取号码失败！请刷新重试！');
+                    layer.msg('獲取號碼失败！请刷新重试！');
                     lockBtn('unlock');
                 }
             });
@@ -546,7 +551,7 @@
                     stopGet();
                     lockBtn('unlock');
 
-                    layer.msg('获取簡訊内容超时！请重新获取号码！');
+                    layer.msg('获取簡訊内容超时！请重新獲取號碼！');
 
                     $.ajax({
                         url: '/releaseNumber/',

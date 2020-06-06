@@ -25,11 +25,11 @@
 </head>
 <body>
 <div class="demoTable">
-    搜索国家：
+    搜尋國家：
     <div class="layui-inline">
-        <input class="layui-input" name="protitle" id="proReload" autocomplete="off" placeholder="请输入国家简称或关键词">
+        <input class="layui-input" name="protitle" id="proReload" autocomplete="off" placeholder="請輸入國家或關鍵字">
     </div>
-    <button class="layui-btn layui-btn-normal" data-type="reload">搜索</button>
+    <button class="layui-btn layui-btn-normal" data-type="reload">搜尋</button>
 </div>
 <table class="layui-hide" id="countrylist" lay-filter="list"></table>
 <script type="text/javascript" src="https://www.layuicdn.com/layui/layui.js"></script>
@@ -49,9 +49,9 @@
             , skin: 'row'
             , even: true
             , cols: [[
-                {type: 'radio', title: '选择'}
-                , {field: 'icon', title: '图标', templet: '#imgnode'}
-                , {field: 'name', title: '中文名称'}
+                {type: 'radio', title: '選擇'}
+                , {field: 'icon', title: '圖片', templet: '#imgnode'}
+                , {field: 'name', title: '中文名稱'}
             ]]
             , page: true
             , id: 'proReload'

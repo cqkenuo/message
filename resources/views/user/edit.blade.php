@@ -71,11 +71,10 @@
         <div class="layui-card-header">個人信息</div>
         <div class="layui-card-body">
             <form class="layui-form layui-form-pane" action="">
-                <blockquote class="layui-elem-quote layui-text notice">為了您的賬戶安全 , 請壹定正確填寫資料！找回賬戶等重要操作時平臺會核驗！
-                </blockquote>
+
                 <div class="user_left">
                     <div class="layui-form-item">
-                        <label class="layui-form-label">用戶昵稱</label>
+                        <label class="layui-form-label">用戶名稱</label>
                         <div class="layui-input-inline">
                             <input type="text" value="{{ $user->name }}" name="username" id="username" disabled
                                    class="layui-input"
@@ -83,14 +82,14 @@
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">帳戶余額</label>
+                        <label class="layui-form-label">帳戶餘額</label>
                         <div class="layui-input-inline">
                             <input type="text" value="{{$user->money}}" disabled class="layui-input">
                         </div>
                     </div>
 
                     <div class="layui-form-item">
-                        <label class="layui-form-label">郵箱</label>
+                        <label class="layui-form-label">電子郵件</label>
                         <div class="layui-input-inline">
                             <input type="text" id="alipay" name="alipay" value="{{ $user->email }}" disabled
                                    class="layui-input">
@@ -111,23 +110,21 @@
                             <input type="password" id="password" name="password" autocomplete="off" value=""
                                    class="layui-input" lay-verify="required">
                         </div>
-                        <div class="layui-input-inline"><font class="mustnode">*必填</font></div>
                     </div>
 
                     <div class="layui-form-item">
-                        <label class="layui-form-label">重復輸入新密碼</label>
+                        <label class="layui-form-label">重複新密碼</label>
                         <div class="layui-input-inline">
                             <input type="password" id="rpassword" name="rpassword" autocomplete="off" value=""
                                    class="layui-input" lay-verify="required">
                         </div>
-                        <div class="layui-input-inline"><font class="mustnode">*必填</font></div>
                     </div>
                     {{ csrf_field() }}
 
 
                     <div class="layui-form-item">
                         <div class="layui-input-inline">
-                            <button class="layui-btn layui-btn-normal submit" lay-submit="" lay-filter="add">保存信息
+                            <button class="layui-btn layui-btn-normal submit" lay-submit="" lay-filter="add">儲存訊息
                             </button>
                         </div>
                     </div>
