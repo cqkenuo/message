@@ -73,6 +73,14 @@ class CodeReceivingRecordController extends AdminController
                 $filter->equal('user_id')->select($data);
 
 
+                $project = Project::all();
+                $data = [];
+                foreach ($project as $item) {
+                    $data[$item->id] = "【".Platform::find($item->platform_id)->name."】" . $item->name;
+                }
+                $filter->equal('project_id')->select($data);
+
+
                 $filter->equal('status')->select([
                     0 => '未接码',
                     1 => '已接码'
