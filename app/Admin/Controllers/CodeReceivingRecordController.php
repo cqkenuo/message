@@ -5,6 +5,7 @@ namespace App\Admin\Controllers;
 use App\Admin\Repositories\CodeReceivingRecord;
 use App\Models\Platform;
 use App\Models\Project;
+use App\Models\User;
 use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Show;
@@ -22,6 +23,8 @@ class CodeReceivingRecordController extends AdminController
     protected function grid()
     {
         return Grid::make(\App\Models\CodeReceivingRecord::orderBy('created_at', 'desc'), function (Grid $grid) {
+
+
             $grid->id->sortable();
             $grid->platform_id->display(function ($platform) {
                 $platform = Platform::find($platform);
@@ -49,7 +52,10 @@ class CodeReceivingRecordController extends AdminController
             });
             $grid->created_at;
 
+
             $grid->filter(function (Grid\Filter $filter) {
+
+
                 $filter->equal('id');
 
                 $platform = Platform::all();
@@ -59,12 +65,20 @@ class CodeReceivingRecordController extends AdminController
                 }
                 $filter->equal('platform_id')->select($data);
 
+                $platform = User::all();
+                $data = [];
+                foreach ($platform as $item) {
+                    $data[$item->id] = $item->name;
+                }
+                $filter->equal('user_id')->select($data);
+
+
                 $filter->equal('status')->select([
                     0 => '未接码',
                     1 => '已接码'
                 ]);
 
-                $filter->gt('created_at')->date();
+                $filter->between('created_at')->datetime();
             });
         });
     }
