@@ -125,10 +125,10 @@
                     </li>
 
                     <li data-name="get" class="layui-nav-item">
-                        <a href="javascript:;" lay-href="/workOrder/index" lay-tips="工单管理"
+                        <a href="javascript:;" lay-href="/workOrder/index" lay-tips="工單管理"
                            lay-direction="2">
                             <i class="layui-icon layui-icon-component"></i>
-                            <cite>工单管理</cite>
+                            <cite>工單管理</cite>
                         </a>
                     </li>
 

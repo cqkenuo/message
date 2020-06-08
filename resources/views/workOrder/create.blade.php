@@ -70,20 +70,20 @@
 <div class="layui-fuild">
 
     <div class="layui-card">
-        <div class="layui-card-header">個人信息</div>
+        <div class="layui-card-header">個人訊息</div>
         <div class="layui-card-body">
             <form class="layui-form layui-form-pane" action="">
 
                 <div class="layui-form-item layui-form-text">
-                    <label class="layui-form-label">申诉原因</label>
+                    <label class="layui-form-label">申訴原因</label>
                     <div class="layui-input-block">
-                        <textarea placeholder="请输入内容" name="reason" class="layui-textarea"></textarea>
+                        <textarea placeholder="請輸入內容 " name="reason" class="layui-textarea"></textarea>
                     </div>
                 </div>
 
 
                 <div class="layui-form-item layui-form-text">
-                    <label class="layui-form-label">投诉接码记录</label>
+                    <label class="layui-form-label"> 投訴收碼紀錄</label>
                     <div class="layui-input-block">
                         <div id="test3"></div>
 
@@ -96,7 +96,7 @@
 
                 <div class="layui-form-item">
                     <div class="layui-input-inline">
-                        <button class="layui-btn layui-btn-normal submit" lay-submit="" lay-filter="add">发起申诉
+                        <button class="layui-btn layui-btn-normal submit" lay-submit="" lay-filter="add">提交申訴
                         </button>
                     </div>
                 </div>
@@ -141,12 +141,12 @@
         form.on('submit(add)', function (obj) {
             console.log(obj);
             if (obj.field.reason == '') {
-                layer.msg('请填写申诉原因');
+                layer.msg('請輸入申訴原因');
                 return false;
             }
             var selectArr = select.getValue('value');
             if (selectArr.length == 0) {
-                layer.msg('至少选择一条记录');
+                layer.msg('請選擇一条记录');
                 return false;
             }
 
@@ -159,7 +159,7 @@
                 data: obj.field,
                 dataType: 'json',
                 success: function (res) {
-                    layer.msg('提交成功', {icon: 6, time: 1000}, function () {
+                    layer.msg('申訴成功', {icon: 6, time: 1000}, function () {
                         window.location.href = '/workOrder/index'
                     });
                 },

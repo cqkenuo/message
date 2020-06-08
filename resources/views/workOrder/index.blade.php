@@ -65,10 +65,10 @@
             , skin: 'row'
             , even: true
             , cols: [[
-                {field: 'id', width: "10%", title: '工单ID'}
+                {field: 'id', width: "10%", title: '工單ID'}
                 , {field: 'reason', title: '原因'}
                 , {field: 'manager_back', title: '管理员回复'}
-                , {field: 'record', title: '接码单'}
+                , {field: 'record', title: '收碼紀錄'}
                 , {
                     field: 'status', title: '状态', width: "10%", templet: function (data) {
                         if (data.status == 0) {
