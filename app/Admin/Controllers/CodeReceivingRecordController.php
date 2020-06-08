@@ -44,6 +44,14 @@ class CodeReceivingRecordController extends AdminController
                 }
 
             });
+            $grid->column('user_id')->display(function ($user_id) {
+                $user = User::find($user_id);
+                if ($user) {
+                    return $user->name;
+                } else {
+                    return "无此用户";
+                }
+            });
             $grid->phone;
             $grid->amount;
             $grid->content;
