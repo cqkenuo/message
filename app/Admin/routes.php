@@ -24,6 +24,7 @@ Route::group([
     $router->resource('area', 'AreaController');
     $router->resource('segment', 'SegmentController');
     $router->resource('operator', 'OperatorController');
+    $router->resource('workorder', 'WorkOrderController');
 
     $router->post('addUserMoneyAction', 'AddUserMoneyController@addUserMoneyAction');
 

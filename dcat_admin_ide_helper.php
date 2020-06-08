@@ -46,14 +46,17 @@ namespace Dcat\Admin {
      * @property Grid\Column|Collection admin_user_id
      * @property Grid\Column|Collection user_id
      * @property Grid\Column|Collection project_id
-     * @property Grid\Column|Collection country_id
      * @property Grid\Column|Collection content
      * @property Grid\Column|Collection status
+     * @property Grid\Column|Collection country_id
      * @property Grid\Column|Collection display_name
      * @property Grid\Column|Collection code
-     * @property Grid\Column|Collection pid
-     * @property Grid\Column|Collection parent_id
      * @property Grid\Column|Collection order
+     * @property Grid\Column|Collection pid
+     * @property Grid\Column|Collection record_id
+     * @property Grid\Column|Collection reason
+     * @property Grid\Column|Collection manager_back
+     * @property Grid\Column|Collection parent_id
      * @property Grid\Column|Collection uri
      * @property Grid\Column|Collection permission_id
      * @property Grid\Column|Collection menu_id
@@ -104,14 +107,17 @@ namespace Dcat\Admin {
      * @method Grid\Column|Collection admin_user_id(string $label = null)
      * @method Grid\Column|Collection user_id(string $label = null)
      * @method Grid\Column|Collection project_id(string $label = null)
-     * @method Grid\Column|Collection country_id(string $label = null)
      * @method Grid\Column|Collection content(string $label = null)
      * @method Grid\Column|Collection status(string $label = null)
+     * @method Grid\Column|Collection country_id(string $label = null)
      * @method Grid\Column|Collection display_name(string $label = null)
      * @method Grid\Column|Collection code(string $label = null)
-     * @method Grid\Column|Collection pid(string $label = null)
-     * @method Grid\Column|Collection parent_id(string $label = null)
      * @method Grid\Column|Collection order(string $label = null)
+     * @method Grid\Column|Collection pid(string $label = null)
+     * @method Grid\Column|Collection record_id(string $label = null)
+     * @method Grid\Column|Collection reason(string $label = null)
+     * @method Grid\Column|Collection manager_back(string $label = null)
+     * @method Grid\Column|Collection parent_id(string $label = null)
      * @method Grid\Column|Collection uri(string $label = null)
      * @method Grid\Column|Collection permission_id(string $label = null)
      * @method Grid\Column|Collection menu_id(string $label = null)
@@ -167,14 +173,17 @@ namespace Dcat\Admin {
      * @property Show\Field|Collection admin_user_id
      * @property Show\Field|Collection user_id
      * @property Show\Field|Collection project_id
-     * @property Show\Field|Collection country_id
      * @property Show\Field|Collection content
      * @property Show\Field|Collection status
+     * @property Show\Field|Collection country_id
      * @property Show\Field|Collection display_name
      * @property Show\Field|Collection code
-     * @property Show\Field|Collection pid
-     * @property Show\Field|Collection parent_id
      * @property Show\Field|Collection order
+     * @property Show\Field|Collection pid
+     * @property Show\Field|Collection record_id
+     * @property Show\Field|Collection reason
+     * @property Show\Field|Collection manager_back
+     * @property Show\Field|Collection parent_id
      * @property Show\Field|Collection uri
      * @property Show\Field|Collection permission_id
      * @property Show\Field|Collection menu_id
@@ -225,14 +234,17 @@ namespace Dcat\Admin {
      * @method Show\Field|Collection admin_user_id(string $label = null)
      * @method Show\Field|Collection user_id(string $label = null)
      * @method Show\Field|Collection project_id(string $label = null)
-     * @method Show\Field|Collection country_id(string $label = null)
      * @method Show\Field|Collection content(string $label = null)
      * @method Show\Field|Collection status(string $label = null)
+     * @method Show\Field|Collection country_id(string $label = null)
      * @method Show\Field|Collection display_name(string $label = null)
      * @method Show\Field|Collection code(string $label = null)
-     * @method Show\Field|Collection pid(string $label = null)
-     * @method Show\Field|Collection parent_id(string $label = null)
      * @method Show\Field|Collection order(string $label = null)
+     * @method Show\Field|Collection pid(string $label = null)
+     * @method Show\Field|Collection record_id(string $label = null)
+     * @method Show\Field|Collection reason(string $label = null)
+     * @method Show\Field|Collection manager_back(string $label = null)
+     * @method Show\Field|Collection parent_id(string $label = null)
      * @method Show\Field|Collection uri(string $label = null)
      * @method Show\Field|Collection permission_id(string $label = null)
      * @method Show\Field|Collection menu_id(string $label = null)

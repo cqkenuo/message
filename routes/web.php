@@ -54,6 +54,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/selectCountryPage', 'Home\ProjectController@selectCountryPage');
     Route::get('/selectCountry', 'Home\ProjectController@selectCountry');
 
+    Route::get('/workOrder/index', 'Home\WorkOrderController@index');
+    Route::get('/workOrder/getList', 'Home\WorkOrderController@getList');
+    Route::get('/workOrder/create', 'Home\WorkOrderController@create');
+    Route::get('/workOrder/store', 'Home\WorkOrderController@store');
+    Route::get('/workOrder/getMyRecord', 'Home\WorkOrderController@getMyRecord');
+
 
     Route::get('/getNumber', 'Home\GetCodeController@getNumber');
     Route::get('/getSmsContent', 'Home\GetCodeController@getSmsContent');
